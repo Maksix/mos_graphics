@@ -1,0 +1,30 @@
+.Highchart-MenuBox {
+    display: flex;
+}
+
+.Highchart-List {
+    font-size: 18px;
+    list-style: none;
+}
+
+.List-Item {
+    outline: none;
+    cursor: pointer;
+    height: 50px;
+    width: 150px;
+    display: flex;
+}
+
+.List-Icon {
+    position: absolute;
+}
+
+.List-Caption {
+    margin: auto;
+    text-align: center;
+    vertical-align: center;
+}
+
+.List-Item:hover {
+    background-color: #f6f6f6;
+}

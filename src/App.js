@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import { cn } from "@bem-react/classname";
 import './App.css';
+import Highchart from "./components/Highchart/Highchart";
+import HighchartMenu from "./components/HighchartMenu/HighchartMenu";
+import HighchartContext from "./context/HighchartContext";
 
 function App() {
+  const highchartCss = cn('Highchart');
+  const yearList = ['Все время', 2017, 2018, 2019];
+  const [year, setYear] = useState(yearList[0]);
+  const monthsList = ['Все месяцы', 'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+  const [month, setMonth] = useState(monthsList[0]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HighchartContext.Provider value={{ month, year, setYear, setMonth, monthsList, yearList }}>
+      <div className={highchartCss()}>
+        <Highchart cls={highchartCss} />
+        <HighchartMenu cls={highchartCss} />
+      </div>
+    </HighchartContext.Provider>
   );
 }
 
